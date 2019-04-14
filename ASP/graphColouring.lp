@@ -1,0 +1,16 @@
+%% A program to find graph colouring
+
+#const n=8.
+
+vertex ( a ; b ; c ; d ; e ; f ; g ; h ).
+edge (a , b ; b,c ; c , d ; d , a ;e,f; f,g; g,h; h,e;
+a , e ; b , f ; c , g ; d , h ; f , h ).
+
+color(1..n).
+
+1{color(X, C) : color(C)}1 :- vertex(X).
+
+:- color(X, C), color(Y, C), edge(X, Y).
+
+#minimize{1, C : color(_, C)}.
+#show color/2.
