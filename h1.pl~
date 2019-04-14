@@ -1,0 +1,8 @@
+%% maxNum(N,Ans) where Ans is the largest number obtained by rotating the digits of N.
+
+
+listify(Num, L1) :- U is Num mod 10, N1 is Num/10, append(X, [U], L1), listify(Num/10, X).
+
+
+
+    
