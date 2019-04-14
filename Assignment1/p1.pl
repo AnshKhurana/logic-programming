@@ -1,3 +1,7 @@
+%% Name: Ansh Khurana
+%% Roll Number: 170050035
+%% Original work.
+
 %% 1. crdnlty(M, N) which means N is the number of distinct elements in multiset M.
 
 %% ?- crdnlty([3,1,2,3],N). gives N = 3 .
