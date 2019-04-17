@@ -1,0 +1,5 @@
+%% A program to generate combinations of a list
+
+ncr(L, K, R):- ncrhelper(L, K, 0, []).
+ncrhelper(L, K, K, _):- !.
+ncrhelper(L, K, C, R):- member(X, L), rem(L, X, L1), C1 is C+1, ncrhelper(L1, K, C1, R1), append([X], R1, R).  

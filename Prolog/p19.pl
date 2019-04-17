@@ -1,0 +1,5 @@
+%% A program to rotate a list by K places
+
+split(L, K, F, R) :- append(F, R, L), length(F, K).
+rotate_left(L, K, Res) :- split(L, K, F, R), append(R, F, Res),!.
+rotate_right(L, K, Res) :- length(L, N), K1 is N-K, split(L, K1, F, R), append(R, F, Res),!.

@@ -27,7 +27,7 @@ composite(N) :- N=1..n, I=2..N-1, N\I=0.
 %           from {1,...,n}.
 
 prime(N) :- N = 2..n, not composite(N).
-pair(X, Y):- X=1..n, Y=1..n, prime(X), prime(Y), Y-X = 10.
+pair(X, Y):- X=1..n, Y=1..n, prime(X), prime(Y), Y-X = diff.
 ans(A):- #count{X: pair(X, Y)} = A.
 
 #show ans/1.

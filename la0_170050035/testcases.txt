@@ -1,0 +1,122 @@
+P1
+
+?- crdnlty([], N).
+N = 0.
+
+?- crdnlty([0,1,2,3,4,5,6,7,8,9], N).
+N = 10 .
+
+?- crdnlty([0,-1,-2,-3,-4,-5,-6,-7,-8,-9], N).
+N = 10 .
+
+?- crdnlty([0,-1,1,-2,2,-3,3,-4,4,-5,5,-6,6,-7,7,-8], N).
+N = 16 .
+
+?- crdnlty([01,02,03,21,42,1,2,3,4,-1], N).
+N = 7 .
+
+?- crdnltyHigh([1,2,3,4,5], 2, N).
+N = 0 .
+
+?- crdnltyHigh([1,2,3,4,5,1,2,3,4,5,1,2,3], 3, N).
+N = 3 .
+
+?- crdnltyHigh([], 1, N).
+N = 0.
+
+?- crdnltyHigh([01,01,01,1,2,2,2,1], 4, N).
+N = 1 .
+
+?- crdnltyHigh([1,2,3,4,5,5,4,3,2,1,0,0,-1,-1,2,1,2,1,2,1], 4, N).
+N = 2 .
+
+?- crdnltyMax([1,2,3], N1, N2).
+N1 = 3,
+N2 = 1 .
+
+?- crdnltyMax([1,1,1,1,1,01], N1, N2).
+N1 = 1,
+N2 = 6 .
+
+?- crdnltyMax([1,1.0], N1, N2).
+N1 = 2,
+N2 = 1 .
+
+?- crdnltyMax([1,2,3,1,2,3,1,2,3,3,2,1], N1, N2).
+N1 = 3,
+N2 = 4 .
+
+?- crdnltyMax([1,2.0,-3,3,3,3], N1, N2).
+N1 = 1,
+N2 = 3 .
+
+P2
+
+clingo -c n=1000 -c diff=10 p2.lp = ans(51)
+clingo -c n=1000 -c diff=1 p2.lp = ans(1)
+clingo -c n=5000 -c diff=10 p2.lp = ans(163)
+clingo -c n=10000 -c diff=10 p2.lp = ans(270)
+clingo -c n=10000 -c diff=42 p2.lp = ans(488)
+
+P3
+
+$ clingo -c n=40 -c m=9  golomb.lp 
+clingo version 4.5.4
+Reading from golomb.lp
+Solving...
+UNSATISFIABLE
+
+Models       : 0     
+Calls        : 1
+Time         : 1.868s (Solving: 1.72s 1st Model: 0.00s Unsat: 1.72s)
+CPU Time     : 1.770s
+
+$ clingo -c n=44 -c m=9  golomb.lp 
+clingo version 4.5.4
+Reading from golomb.lp
+Solving...
+Answer: 1
+used(0) used(1) used(5) used(12) used(25) used(27) used(35) used(41) used(44)
+SATISFIABLE
+
+Models       : 1+    
+Calls        : 1
+Time         : 0.112s (Solving: 0.06s 1st Model: 0.06s Unsat: 0.00s)
+CPU Time     : 0.110s
+
+$ clingo -c n=30 -c m=7  golomb.lp 
+clingo version 4.5.4
+Reading from golomb.lp
+Solving...
+Answer: 1
+used(0) used(1) used(3) used(7) used(12) used(20) used(30)
+SATISFIABLE
+
+Models       : 1+    
+Calls        : 1
+Time         : 0.028s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.020s
+
+$ clingo -c n=18 -c m=6  golomb.lp 
+clingo version 4.5.4
+Reading from golomb.lp
+Solving...
+Answer: 1
+used(0) used(1) used(3) used(8) used(12) used(18)
+SATISFIABLE
+
+Models       : 1+    
+Calls        : 1
+Time         : 0.017s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.010s
+
+$ clingo -c n=11 -c m=6  golomb.lp 
+clingo version 4.5.4
+Reading from golomb.lp
+Solving...
+UNSATISFIABLE
+
+Models       : 0     
+Calls        : 1
+Time         : 0.008s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.010s

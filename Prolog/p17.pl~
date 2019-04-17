@@ -1,0 +1,3 @@
+%% A program to split a list
+
+split(L, N, F, R):- length(F, N), append(F, R, L).

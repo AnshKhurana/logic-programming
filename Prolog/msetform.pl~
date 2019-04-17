@@ -1,0 +1,7 @@
+%% A program to convert into multi-set form
+
+msetform([], []).
+msetform([A|R], [ (A, N) | R2 ]) :- cr(A, L, L1, N), msetform(L1, R).
+
+cr(A, [], [], 0).
+cr(A, [F | R], Ans, N) :- (A == F -> cr(A, R, Ans, N1), N is N1+1 ; cr(A, R, Ans, N)).  
